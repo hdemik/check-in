@@ -15,10 +15,10 @@ get '/' do
     'What am I going to do differently today?',
     'What - realistic - dream is on your wishlist?',
     'What do you want to do for the first time in your life?',
-    'Which exciting things, that are challenging for you, will you be doing in the next days?',
+    'Which exciting things, that are challenging for you,<br/>will you be doing in the next days?',
     'Which decisions can you make today to make tomorrow a better day?',
     'Name 3 moments/experiences from the past few days for which you are grateful',
-    'Failing to plan is planning to fail; So what could make tomorrow a great day?'
+    'Failing to plan is planning to fail;<br/>So what could make tomorrow a great day?'
   ];
 
   @question = questions.shuffle.first

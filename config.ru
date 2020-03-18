@@ -1,2 +1,2 @@
-require './check-in'
+require './app/check-in'
 run Sinatra::Application

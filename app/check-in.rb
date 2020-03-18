@@ -1,8 +1,7 @@
 require 'sinatra'
 
-get '/' do
-  questions = [
-    'What should you do today to make someone else happy?',
+def questions
+  [ 'What should you do today to make someone else happy?',
     'What am I grateful for?',
     'What do I want to learn today?',
     'Whom would I most like to look over the shoulder?',
@@ -20,7 +19,13 @@ get '/' do
     'Name 3 moments/experiences from the past few days for which you are grateful',
     'Failing to plan is planning to fail;<br/>So what could make tomorrow a great day?'
   ];
+end
 
+get '/', provides: 'html' do
   @question = questions.shuffle.first
   erb :index
+end
+
+get '/', provides: 'json' do
+  { question: questions.shuffle.first }.to_json
 end

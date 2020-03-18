@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.question {
+  display: block;
+  margin: 0 auto;
+  width: 640px;
+
+  font-size: 24pt;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: whitesmoke;
+
+  text-align: center;
+}
+
+.backdrop {
+  margin: 100px 0;
+  padding: 50px 0;
+  background-color: green;
+  width: 100%;
+  height: 200px;
+}

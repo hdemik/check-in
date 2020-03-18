@@ -21,5 +21,6 @@ get '/' do
     'Failing to plan is planning to fail; So what could make tomorrow a great day?'
   ];
 
-  return questions.shuffle.first
+  @question = questions.shuffle.first
+  erb :index
 end

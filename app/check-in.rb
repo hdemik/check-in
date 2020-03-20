@@ -27,7 +27,7 @@ end
 
 def typed_render
   if request.preferred_type.to_s == "text/html"
-    erb :index
+    erb :view
   else
     { question: @question }.to_json
   end
@@ -50,3 +50,17 @@ get '/today' do
   @question = questions[day-1]
   typed_render
 end
+
+__END__
+
+@@ view
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div class="backdrop"><div class="question"><%= @question %></div></div>
+</body>
+</html>

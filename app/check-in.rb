@@ -30,6 +30,11 @@ get '/', provides: 'html' do
   erb :index
 end
 
+get '/!/:id' do |id|
+  @question = (questions[id.to_i - 1] || randQuestion)
+  erb :index
+end
+
 get '/', provides: 'json' do
   { question: randQuestion }.to_json
 end

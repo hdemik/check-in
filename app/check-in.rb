@@ -21,11 +21,15 @@ def questions
   ];
 end
 
+def randQuestion
+  questions.shuffle.first
+end
+
 get '/', provides: 'html' do
-  @question = questions.shuffle.first
+  @question = randQuestion
   erb :index
 end
 
 get '/', provides: 'json' do
-  { question: questions.shuffle.first }.to_json
+  { question: randQuestion }.to_json
 end

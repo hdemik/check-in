@@ -21,20 +21,32 @@ def questions
   ];
 end
 
-def randQuestion
+def rand_question
   questions.shuffle.first
 end
 
-get '/', provides: 'html' do
-  @question = randQuestion
-  erb :index
+def typed_render
+  if request.preferred_type.to_s == "text/html"
+    erb :index
+  else
+    { question: @question }.to_json
+  end
+end
+
+get '/' do
+  @question = rand_question
+  typed_render
 end
 
 get '/!/:id' do |id|
-  @question = (questions[id.to_i - 1] || randQuestion)
-  erb :index
+  @question = (questions[id.to_i - 1] || rand_question)
+  typed_render
 end
 
-get '/', provides: 'json' do
-  { question: randQuestion }.to_json
+get '/today' do
+  day = Time.new.day
+  day = day - 17 if day > 17;
+
+  @question = questions[day-1]
+  typed_render
 end

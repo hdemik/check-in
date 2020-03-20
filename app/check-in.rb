@@ -45,7 +45,7 @@ end
 
 get '/today' do
   day = Time.new.day
-  day = day - 17 if day > 17;
+  day = day - questions.count if day > questions.count;
 
   @question = questions[day-1]
   typed_render

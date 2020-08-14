@@ -48,7 +48,7 @@ get '/today' do
   day = Time.new.day
   day = day - questions.count if day > questions.count;
 
-  @question = questions[day-1]
+  @question = questions[day-1] || rand_question
   typed_render
 end
 

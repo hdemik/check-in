@@ -4,16 +4,20 @@ require 'sinatra/config_file'
 config_file 'config.yml'
 
 def avail_languages
-  @avail_languages ||= %w(de en nl fr jp)
+  { en: '🇬🇧', de: '🇩🇪', fr: '🇫🇷', nl: '🇳🇱', jp: '🇯🇵' }
+end
+
+def language
+  language = params[:lang].nil? ? :en : params[:lang].to_sym
+  avail_languages.keys.include?(language) ? language : :en
 end
 
 def questions
-  lang = params[:lang]
-  if avail_languages.include?(lang)
-    settings.send(lang)
-  else
-    settings.en
-  end
+  settings.send(language)
+end
+
+def other_languages
+  avail_languages.reject { |k,v| k == language }
 end
 
 def rand_question
@@ -21,6 +25,8 @@ def rand_question
 end
 
 def typed_render
+  @languages = other_languages
+
   if request.preferred_type.to_s == "text/html"
     erb :view
   else
@@ -56,6 +62,13 @@ __END__
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-  <div class="backdrop"><div class="question"><%= @question %></div></div>
+  <div class="backdrop">
+    <div class="languages">
+      <% @languages.each do |lang,flag| %>
+        <a href="?lang=<%= lang %>"><%= flag %></a>
+      <% end %>
+    </div>
+    <div class="question"><%= @question %></div>
+  </div>
 </body>
 </html>

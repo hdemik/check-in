@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .question {
   display: block;
   margin: 0 auto;

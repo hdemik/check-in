@@ -4,7 +4,12 @@ require 'sinatra/config_file'
 config_file 'config.yml'
 
 def avail_languages
-  { en: '🇬🇧', de: '🇩🇪', fr: '🇫🇷', nl: '🇳🇱', jp: '🇯🇵' }
+  { en: '🇬🇧',
+    de: '🇩🇪',
+    # fr: '🇫🇷',
+    nl: '🇳🇱',
+    # jp: '🇯🇵'
+  }
 end
 
 def language

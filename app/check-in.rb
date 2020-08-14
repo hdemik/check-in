@@ -1,4 +1,11 @@
 require 'sinatra'
+require 'sinatra/config_file'
+
+config_file 'config.yml'
+
+def avail_languages
+  @avail_languages ||= %w(de en nl fr jp)
+end
 
 def questions
   [ 'What should you do today to make someone else happy?',

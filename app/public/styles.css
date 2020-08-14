@@ -18,7 +18,7 @@ body {
 .backdrop {
   margin: 100px 0;
   padding: 50px 0;
-  background-color: green;
+  background-color: #005e34;
   width: 100%;
   height: 200px;
 }

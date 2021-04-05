@@ -37,7 +37,7 @@ class CheckIn < Sinatra::Base
   end
 
   get '/' do
-    send_file 'index.html'
+    redirect '/index.html'
   end
 
   get '/questions' do

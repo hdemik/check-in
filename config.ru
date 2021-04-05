@@ -1,2 +1,2 @@
 require './app/check-in'
-run Sinatra::Application
+run CheckIn.run!

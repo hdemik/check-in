@@ -31,15 +31,9 @@ class CheckIn < Sinatra::Base
     questions.shuffle.first
   end
 
-  def typed_render
-    @languages = other_languages
-
-    if request.preferred_type.to_s == "text/html"
-      erb :view
-    else
-      content_type :json
-      { question: @question }.to_json
-    end
+  def render
+    content_type :json
+    { question: @question }.to_json
   end
 
   get '/' do
@@ -53,7 +47,7 @@ class CheckIn < Sinatra::Base
 
   get '/!/:id' do |id|
     @question = (questions[id.to_i - 1] || rand_question)
-    typed_render
+    render
   end
 
   get '/today' do
@@ -61,6 +55,6 @@ class CheckIn < Sinatra::Base
     day = day - questions.count if day > questions.count;
 
     @question = questions[day-1] || rand_question
-    typed_render
+    render
   end
 end

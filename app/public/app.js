@@ -1,16 +1,26 @@
 'use strict';
 
-const e = React.createElement;
-
 class Question extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      question: "..."
+    };
+  }
+
+  componentDidMount() {
+    var that = this;
+    fetch('/today').then(res => res.json()).then(question => {
+      that.setState({
+        question: question.question
+      });
+    });
   }
 
   render() {
-    return e("span", {}, "Hello World!");
+    return /*#__PURE__*/React.createElement("span", null, this.state.question);
   }
+
 }
 
-const domContainer = document.querySelector('#question');
-ReactDOM.render(e(Question), domContainer);
+ReactDOM.render( /*#__PURE__*/React.createElement(Question, null), document.querySelector('#question'));

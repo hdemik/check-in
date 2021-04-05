@@ -43,8 +43,7 @@ class CheckIn < Sinatra::Base
   end
 
   get '/' do
-    @question = rand_question
-    typed_render
+    send_file 'index.html'
   end
 
   get '/questions' do

@@ -31,9 +31,8 @@ class CheckIn < Sinatra::Base
     questions.shuffle.first
   end
 
-  def render
+  before do
     content_type :json
-    { question: @question }.to_json
   end
 
   get '/' do
@@ -41,20 +40,19 @@ class CheckIn < Sinatra::Base
   end
 
   get '/questions' do
-    content_type :json
     { questions: questions() }.to_json
   end
 
   get '/!/:id' do |id|
-    @question = (questions[id.to_i - 1] || rand_question)
-    render
+    question = (questions[id.to_i - 1] || rand_question)
+    { question: question }.to_json
   end
 
   get '/today' do
     day = Time.new.day
     day = day - questions.count if day > questions.count;
 
-    @question = questions[day-1] || rand_question
-    render
+    question = questions[day-1] || rand_question
+    { question: question }.to_json
   end
 end

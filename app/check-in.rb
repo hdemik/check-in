@@ -36,6 +36,7 @@ class CheckIn < Sinatra::Base
   end
 
   get '/' do
+    content_type :html
     send_file 'app/public/index.html'
   end
 

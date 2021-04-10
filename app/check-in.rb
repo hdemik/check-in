@@ -41,7 +41,11 @@ class CheckIn < Sinatra::Base
   end
 
   get '/questions' do
-    { questions: questions() }.to_json
+    { questions: questions(), language: language }.to_json
+  end
+
+  get '/!' do
+    { question: rand_question }.to_json
   end
 
   get '/!/:id' do |id|

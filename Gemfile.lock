@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:hdemik/jason_spec.git
+  revision: a0b3d2b091344f95fdd5735b63e670348f77adad
+  specs:
+    jason_spec (0.0.2)
+      rspec (~> 3.10)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,6 +59,7 @@ PLATFORMS
 
 DEPENDENCIES
   jasmine
+  jason_spec!
   rack-test
   rspec
   sinatra

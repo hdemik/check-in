@@ -3,14 +3,22 @@ GEM
   specs:
     backports (3.18.1)
     diff-lcs (1.4.4)
+    jasmine (3.7.0)
+      jasmine-core (~> 3.7.0)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (3.7.1)
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    phantomjs (2.1.1.0)
     rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rake (13.0.3)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -43,6 +51,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jasmine
   rack-test
   rspec
   sinatra

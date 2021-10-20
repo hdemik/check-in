@@ -23,17 +23,17 @@ describe CheckIn do
 
   it "serves a daily question" do
     get "/today"
-    expect(last_response.body).to have_jason([:question, :id])
+    expect(last_response.body).to have_jason([:question, :id, :language])
   end
 
   it "serves a random question" do
     get "/!"
-    expect(last_response.body).to have_jason([:question, :id])
+    expect(last_response.body).to have_jason([:question, :id, :language])
   end
 
   it "serves a numbered question" do
     get "/!/1"
-    expect(last_response.body).to have_jason([:question, :id])
+    expect(last_response.body).to have_jason([:question, :id, :language])
   end
 
   it "throws an error when asking for a question that does not exist" do

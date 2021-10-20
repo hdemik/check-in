@@ -55,7 +55,9 @@ class CheckIn < Sinatra::Base
 
   get '/!' do
     question = rand_question
-    { question: question, id: questions.index(question)+1 }.to_json
+          id = questions.index(question)+1
+
+    { question: question, id: id, language: language }.to_json
   end
 
   get '/!/:id' do |id|
@@ -65,7 +67,7 @@ class CheckIn < Sinatra::Base
     question = questions[idx]
     return not_found(id) if question.nil?
 
-    { question: question, id: id }.to_json
+    { question: question, id: id, language: language }.to_json
   end
 
   get '/today' do
@@ -73,6 +75,6 @@ class CheckIn < Sinatra::Base
     day = day - questions.count if day > questions.count;
 
     question = questions[day-1] || rand_question
-    { question: question, id: day }.to_json
+    { question: question, id: day, language: language }.to_json
   end
 end

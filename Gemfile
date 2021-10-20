@@ -1,7 +1,8 @@
-ruby '2.6.6'
+ruby '3.0.1'
 source 'https://rubygems.org'
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'thin'
 
 group :test do
   gem "rspec"

@@ -7,13 +7,17 @@
   <script src="/vue.js"></script>
 </head>
 <body>
-  <div class="backdrop">
-    <div class="languages">
-      EN | DE | NL
+  <div class="backdrop" id="question">
+    <div id="languages" class="languages">
+      <dl>
+        <dt v-for="(flag, lang) in languages" :key="lang" @click="switchLanguage(lang)">
+          {{ flag }}
+        </dt>
+      </dl>
     </div>
-    <div id="question" class="question">{{ question }}</div>
+    <div class="question">{{ question }}</div>
   </div>
 
-  <script  src="/app.js"></script>
+  <script  src="/app.js"></script>s
 </body>
 </html>

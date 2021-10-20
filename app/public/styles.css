@@ -26,6 +26,24 @@ a {
   padding-right: 10px;
 }
 
+#languages dl {
+  display: inline-flex;
+  color: whitesmoke;
+}
+
+#languages dt {
+  display: inline-block;
+  margin: 0px 0px 0px 0.2rem;
+}
+
+#languages dt::after {
+  content: ' |';
+}
+
+#languages dt:last-child::after {
+  content: '';
+}
+
 .backdrop {
   margin: 100px 0;
   padding: 50px 0;

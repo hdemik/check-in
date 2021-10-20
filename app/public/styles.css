@@ -7,16 +7,40 @@ a {
   text-decoration: none;
 }
 
-.question {
+.wrapper {
   display: block;
   margin: 0 auto;
-  width: 1024px;
+  width: 1104px;
+}
 
+.question, .back, .forward {
+  display: block;
+  float: left;
   font-size: 24pt;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   color: whitesmoke;
+}
 
+.question {
+  width: 1024px;
   text-align: center;
+}
+
+.forward {
+  text-align: right;
+}
+
+.back, .forward {
+  width: 40px;
+  cursor: pointer;
+}
+
+.back::before {
+  content: '<';
+}
+
+.forward::after {
+  content: '>';
 }
 
 .languages {

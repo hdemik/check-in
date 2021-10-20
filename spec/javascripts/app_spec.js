@@ -4,11 +4,12 @@ describe("App", function() {
   });
 
   it("has a default question", () => {
-    expect(app.question).toBe('...');
+    // figure out why this got mounted...
+    expect(app.question).toBe('…');
   });
 
   it("has a method for loading a question", async function() {
-    var res = await app.loadToday();
+    var res = await app.loadQuestion();
     expect(app.question).not.toBe('...');
   });
 });

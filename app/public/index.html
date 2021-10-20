@@ -16,7 +16,13 @@
         </dt>
       </dl>
     </div>
-    <div class="question">{{ question }}</div>
+
+    <div class="wrapper">
+      <div class="back" @click="back()"></div>
+      <div class="question" :id="'question-' + id">{{ question }}</div>
+      <div class="forward" @click="forward()"></div>
+    </div>
+
   </div>
 
   <script  src="/app.js"></script>s

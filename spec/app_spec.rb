@@ -28,7 +28,7 @@ describe CheckIn do
 
   it "serves a random question" do
     get "/!"
-    expect(last_response.body).to have_jason([:question])
+    expect(last_response.body).to have_jason([:question, :id])
   end
 
   it "serves a numbered question" do

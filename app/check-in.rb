@@ -62,6 +62,6 @@ class CheckIn < Sinatra::Base
     day = day - questions.count if day > questions.count;
 
     question = questions[day-1] || rand_question
-    { question: question }.to_json
+    { question: question, id: day }.to_json
   end
 end

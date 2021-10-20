@@ -23,7 +23,7 @@ describe CheckIn do
 
   it "serves a daily question" do
     get "/today"
-    expect(last_response.body).to have_jason([:question])
+    expect(last_response.body).to have_jason([:question, :id])
   end
 
   it "serves a random question" do

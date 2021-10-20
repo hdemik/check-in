@@ -33,7 +33,7 @@ describe CheckIn do
 
   it "serves a numbered question" do
     get "/!/1"
-    expect(last_response.body).to have_jason([:question])
+    expect(last_response.body).to have_jason([:question, :id])
   end
 
   it "serves a list of all questions" do

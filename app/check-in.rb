@@ -55,7 +55,7 @@ class CheckIn < Sinatra::Base
 
   get '/!/:id' do |id|
     question = (questions[id.to_i - 1] || rand_question)
-    { question: question }.to_json
+    { question: question, id: id }.to_json
   end
 
   get '/today' do

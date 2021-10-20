@@ -31,6 +31,11 @@ class CheckIn < Sinatra::Base
     questions.shuffle.first
   end
 
+  def not_found(resource)
+    status 404
+    { error: "resource #{resource} not found" }.to_json
+  end
+
   before do
     content_type :json
   end
@@ -54,7 +59,12 @@ class CheckIn < Sinatra::Base
   end
 
   get '/!/:id' do |id|
-    question = (questions[id.to_i - 1] || rand_question)
+    idx = id.to_i - 1
+    return not_found(id) if idx < 0
+
+    question = questions[idx]
+    return not_found(id) if question.nil?
+
     { question: question, id: id }.to_json
   end
 

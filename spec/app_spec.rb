@@ -36,9 +36,15 @@ describe CheckIn do
     expect(last_response.body).to have_jason([:question, :id])
   end
 
-  it "throws an error when asking for a question that does not exist"
+  it "throws an error when asking for a question that does not exist" do
+    get "/!/100"
+    expect(last_response.status).to eq(404)
+  end
 
-  it "throws an error when asking for a negative question id"
+  it "throws an error when asking for a negative question id" do
+    get "/!/-10"
+    expect(last_response.status).to eq(404)
+  end
 
   it "serves a list of all questions" do
     get "/questions"

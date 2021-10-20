@@ -40,6 +40,10 @@ class CheckIn < Sinatra::Base
     send_file 'app/public/index.html'
   end
 
+  get '/languages' do
+    { languages: avail_languages, language: language }.to_json
+  end
+
   get '/questions' do
     { questions: questions(), language: language }.to_json
   end

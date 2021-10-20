@@ -1,0 +1,10 @@
+{
+  "name": "Check-in",
+  "description": "A random question displayed in a nice green setting. Done.",
+  "keywords": [
+    "self-reflection",
+    "HTML5",
+    "Vue.js"
+  ],
+  "stack": "heroku-20"
+}
